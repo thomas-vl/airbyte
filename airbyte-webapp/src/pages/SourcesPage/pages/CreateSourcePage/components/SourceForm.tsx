@@ -22,7 +22,7 @@ type IProps = {
   afterSelectConnector?: () => void;
   dropDownData: IDataItem[];
   hasSuccess?: boolean;
-  error?: any;
+  error?: { message?: string; status?: number } | null;
   jobInfo?: JobInfo;
 };
 
@@ -72,7 +72,7 @@ const SourceForm: React.FC<IProps> = ({
   };
 
   const errorMessage = error
-    ? error.message || createFormErrorMessage(error.status)
+    ? createFormErrorMessage(error.status, error.message)
     : null;
 
   return (

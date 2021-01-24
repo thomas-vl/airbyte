@@ -58,7 +58,7 @@ const SourceSettings: React.FC<IProps> = ({
 
       setSaved(true);
     } catch (e) {
-      const errorStatusMessage = e.message || createFormErrorMessage(e.status);
+      const errorStatusMessage = createFormErrorMessage(e.status, e.message);
 
       setErrorStatusRequest({ ...e, statusMessage: errorStatusMessage });
     }

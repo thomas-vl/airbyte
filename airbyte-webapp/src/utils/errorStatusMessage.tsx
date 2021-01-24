@@ -1,7 +1,11 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 
-export const createFormErrorMessage = (status?: number) => {
+export const createFormErrorMessage = (status?: number, message?: string) => {
+  if (message) {
+    return message;
+  }
+
   if (!status || status === 0) {
     return null;
   }
